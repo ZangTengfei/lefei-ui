@@ -12,7 +12,7 @@ const App:React.FC = () => {
   return (
     <div className="App" style={{margin: '20px'}}>
       <Menu
-        mode='vertical'
+        // mode='vertical'
         defaultIndex={'2-1'} 
         className="custom-menu" 
         onSelect={(index) => {console.log(index)}}
