@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Menu from './components/Menu/menu'
 import MenuItem from './components/Menu/menuItem'
 import SubMenu from './components/Menu/subMenu'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import Icon from './components/Icon/icon'
+import Transition from './components/Transition/transition'
+import Button from './components/Button/button'
 
 library.add(fas)
 
 const App:React.FC = () => {
+  const [ show, setShow ] = useState(false)
   return (
     <div className="App" style={{margin: '20px'}}>
       <Menu
@@ -28,6 +31,21 @@ const App:React.FC = () => {
         <MenuItem>menulink 5</MenuItem>
       </Menu>
       <Icon icon='arrow-down' theme='primary' size='2x' />
+      <Button size='lg' onClick={() => {setShow(!show)}}>Toggle</Button>
+      <Transition
+        in={show}
+        timeout={300}
+        animation="zoom-in-top"
+      >
+        <div>
+          <p>lksajgklajkglajklgjkla</p>
+          <p>lksajgklajkglajklgjkla</p>
+          <p>lksajgklajkglajklgjkla</p>
+          <p>lksajgklajkglajklgjkla</p>
+          <p>lksajgklajkglajklgjkla</p>
+          <Button size='lg'>A Large Button</Button>
+        </div>
+      </Transition>
     </div>
   );
 }
